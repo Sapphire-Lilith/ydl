@@ -1,0 +1,24 @@
+[project]
+name = "youtube-dl"
+version = "0.1.0"
+description = "Add a short description here"
+dependencies = [
+    "yt-dlp>=2023.7.6",
+]
+readme = "README.md"
+requires-python = ">= 3.11"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "black>=23.7.0",
+    "mypy>=1.5.1",
+    "ruff>=0.0.287",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
