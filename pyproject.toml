@@ -1,24 +1,29 @@
 [project]
-name = "youtube-dl"
-version = "0.1.0"
-description = "Add a short description here"
-dependencies = [
-    "yt-dlp>=2023.7.6",
+authors = [
+  {name = "Sapphire-Lilith", email = "sapphire.lilith.2000@gmail.com"},
 ]
+dependencies = [
+  "yt-dlp>=2023.11.16",
+]
+description = "Add your description here"
+name = "youtube-dl"
 readme = "README.md"
 requires-python = ">= 3.11"
+version = "0.1.0"
 
 [build-system]
-requires = ["hatchling"]
 build-backend = "hatchling.build"
+requires = ["hatchling"]
 
 [tool.rye]
-managed = true
 dev-dependencies = [
-    "black>=23.7.0",
-    "mypy>=1.5.1",
-    "ruff>=0.0.287",
+  "ruff>=0.1.5",
+  "pylyzer>=0.0.47",
 ]
+managed = true
 
 [tool.hatch.metadata]
 allow-direct-references = true
+
+[tool.rye.scripts]
+ydl = "python ./src/main.py"
