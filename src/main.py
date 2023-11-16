@@ -14,10 +14,10 @@ def main():
 
     if output_path == "":
         return print(f"{ydl.download(url, filename=filename)}")
-    
+
     if filename == "":
         return print(f"{ydl.download(url, output_path=output_path)}")
-    
+
     return print(f"{ydl.download(url, output_path, filename)}")
 
 
