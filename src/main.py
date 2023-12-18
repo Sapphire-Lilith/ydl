@@ -1,24 +1,23 @@
-import youtube_dl.ydl as ydl
+from pathlib import Path
+from youtube_dl.ydl import Ydl
 
 
 def main():
-    url = input("Enter url: ")
-    output_path = input("Enter output path (default = ~/Downloads): ")
-    filename = input("Enter filename (default = video): ")
+    url: str = input("Enter url: ")
+    out_path: str = input("Enter output path (default = ~/Downloads): ")
+    fname: str = input("Enter filename (default = video): ")
 
-    if url == "":
-        return print("No url entered!")
+    ydl = Ydl()  # if want mp4, Ydl(video_ext="mp4", audio_ext="m4a", out_ext="mp4")
 
-    if output_path == "" and filename == "":
-        return print(f"{ydl.download(url)}")
+    r = ydl.download(
+        url,
+        out_path=Path(out_path) if out_path else Path.home() / "Downloads",
+        fname=fname or "video",
+    )
 
-    if output_path == "":
-        return print(f"{ydl.download(url, filename=filename)}")
-
-    if filename == "":
-        return print(f"{ydl.download(url, output_path=output_path)}")
-
-    return print(f"{ydl.download(url, output_path, filename)}")
+    print("--------------------")
+    print("       Success      " if r else "       Failed       ")
+    print("--------------------")
 
 
 if __name__ == "__main__":
